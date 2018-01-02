@@ -7,6 +7,16 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entitäten",
+                "mediumtyp": "Tonträgerart",
+                "medium": "Tonträger",
+                "person": "Person",
+                "musikepoche": "Musikepoche",
+                "ensembleart": "Ensembleart",
+                "ausfuehrende": "Ausfuehrende",
+                "aufnahme": "Aufnahme",
+                "werk": "Werk",
+                "mediumtyp": "Mediumtyp",
+                "medium": "Medium",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,22 @@
+{
+    "hipmediadbApp": {
+        "medium" : {
+            "home": {
+                "title": "Mediums",
+                "createLabel": "Medium erstellen",
+                "createOrEditLabel": "Medium erstellen oder bearbeiten"
+            },
+            "created": "Medium erstellt mit ID {{ param }}",
+            "updated": "Medium aktualisiert mit ID {{ param }}",
+            "deleted": "Medium gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Medium {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Medium"
+            },
+            "signatur": "Signatur",
+            "typ": "Typ"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "hipmediadbApp": {
+        "mediumtyp" : {
+            "home": {
+                "title": "Mediumtyps",
+                "createLabel": "Mediumtyp erstellen",
+                "createOrEditLabel": "Mediumtyp erstellen oder bearbeiten"
+            },
+            "created": "Mediumtyp erstellt mit ID {{ param }}",
+            "updated": "Mediumtyp aktualisiert mit ID {{ param }}",
+            "deleted": "Mediumtyp gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Mediumtyp {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Mediumtyp"
+            },
+            "name": "Name"
+        }
+    }
+}

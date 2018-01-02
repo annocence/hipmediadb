@@ -1,0 +1,22 @@
+{
+    "hipmediadbApp": {
+        "medium" : {
+            "home": {
+                "title": "Mediums",
+                "createLabel": "Create a new Medium",
+                "createOrEditLabel": "Create or edit a Medium"
+            },
+            "created": "A new Medium is created with identifier {{ param }}",
+            "updated": "A Medium is updated with identifier {{ param }}",
+            "deleted": "A Medium is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Medium {{ id }}?"
+            },
+            "detail": {
+                "title": "Medium"
+            },
+            "signatur": "Signatur",
+            "typ": "Typ"
+        }
+    }
+}

@@ -1,0 +1,58 @@
+<div>
+    <h2>
+        <span jhiTranslate="hipmediadbApp.mediumtyp.home.title">Mediumtyps</span>
+        <button class="btn btn-primary float-right jh-create-entity create-mediumtyp" [routerLink]="['/', { outlets: { popup: ['mediumtyp-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="hipmediadbApp.mediumtyp.home.createLabel">
+            Create new Mediumtyp
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="mediumtyps">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="hipmediadbApp.mediumtyp.name">Name</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mediumtyp of mediumtyps ;trackBy: trackId">
+                <td><a [routerLink]="['../mediumtyp', mediumtyp.id ]">{{mediumtyp.id}}</a></td>
+                <td>{{mediumtyp.name}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../mediumtyp', mediumtyp.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mediumtyp/'+ mediumtyp.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mediumtyp/'+ mediumtyp.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

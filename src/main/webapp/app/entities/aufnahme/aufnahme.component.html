@@ -1,0 +1,84 @@
+<div>
+    <h2>
+        <span jhiTranslate="hipmediadbApp.aufnahme.home.title">Aufnahmes</span>
+        <button class="btn btn-primary float-right jh-create-entity create-aufnahme" [routerLink]="['/', { outlets: { popup: ['aufnahme-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="hipmediadbApp.aufnahme.home.createLabel">
+            Create new Aufnahme
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="aufnahmes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="titel"><span jhiTranslate="hipmediadbApp.aufnahme.titel">Titel</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="aufnahmeDatum"><span jhiTranslate="hipmediadbApp.aufnahme.aufnahmeDatum">Aufnahme Datum</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mitschnittDatum"><span jhiTranslate="hipmediadbApp.aufnahme.mitschnittDatum">Mitschnitt Datum</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dauer"><span jhiTranslate="hipmediadbApp.aufnahme.dauer">Dauer</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startzeit"><span jhiTranslate="hipmediadbApp.aufnahme.startzeit">Startzeit</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ausfuehrende.id"><span jhiTranslate="hipmediadbApp.aufnahme.ausfuehrende">Ausfuehrende</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="medium.id"><span jhiTranslate="hipmediadbApp.aufnahme.medium">Medium</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="werk.id"><span jhiTranslate="hipmediadbApp.aufnahme.werk">Werk</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let aufnahme of aufnahmes ;trackBy: trackId">
+                <td><a [routerLink]="['../aufnahme', aufnahme.id ]">{{aufnahme.id}}</a></td>
+                <td>{{aufnahme.titel}}</td>
+                <td>{{aufnahme.aufnahmeDatum | date:'mediumDate'}}</td>
+                <td>{{aufnahme.mitschnittDatum | date:'mediumDate'}}</td>
+                <td>{{aufnahme.dauer}}</td>
+                <td>{{aufnahme.startzeit}}</td>
+                <td>
+                    <div *ngIf="aufnahme.ausfuehrende">
+                        <a [routerLink]="['../ausfuehrende', aufnahme.ausfuehrende?.id ]" >{{aufnahme.ausfuehrende?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aufnahme.medium">
+                        <a [routerLink]="['../medium', aufnahme.medium?.id ]" >{{aufnahme.medium?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="aufnahme.werk">
+                        <a [routerLink]="['../werk', aufnahme.werk?.id ]" >{{aufnahme.werk?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../aufnahme', aufnahme.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'aufnahme/'+ aufnahme.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'aufnahme/'+ aufnahme.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

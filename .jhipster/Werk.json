@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "urheber",
+            "otherEntityName": "person",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "musikepoche",
+            "otherEntityName": "musikepoche",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "titel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "titelzusatz",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zaehlinfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gattung",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180101214950",
+    "entityTableName": "werk",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

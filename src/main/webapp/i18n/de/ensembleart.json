@@ -1,0 +1,21 @@
+{
+    "hipmediadbApp": {
+        "ensembleart" : {
+            "home": {
+                "title": "Ensemblearts",
+                "createLabel": "Ensembleart erstellen",
+                "createOrEditLabel": "Ensembleart erstellen oder bearbeiten"
+            },
+            "created": "Ensembleart erstellt mit ID {{ param }}",
+            "updated": "Ensembleart aktualisiert mit ID {{ param }}",
+            "deleted": "Ensembleart gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Ensembleart {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Ensembleart"
+            },
+            "name": "Name"
+        }
+    }
+}

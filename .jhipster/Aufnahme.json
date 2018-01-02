@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ausfuehrende",
+            "otherEntityName": "ausfuehrende",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "medium",
+            "otherEntityName": "medium",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "werk",
+            "otherEntityName": "werk",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "titel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aufnahmeDatum",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "mitschnittDatum",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dauer",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "startzeit",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180101214949",
+    "entityTableName": "aufnahme",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

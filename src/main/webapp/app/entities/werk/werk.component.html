@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="hipmediadbApp.werk.home.title">Werks</span>
+        <button class="btn btn-primary float-right jh-create-entity create-werk" [routerLink]="['/', { outlets: { popup: ['werk-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="hipmediadbApp.werk.home.createLabel">
+            Create new Werk
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="werks">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="hipmediadbApp.werk.titel">Titel</span></th>
+            <th><span jhiTranslate="hipmediadbApp.werk.titelzusatz">Titelzusatz</span></th>
+            <th><span jhiTranslate="hipmediadbApp.werk.zaehlinfo">Zaehlinfo</span></th>
+            <th><span jhiTranslate="hipmediadbApp.werk.gattung">Gattung</span></th>
+            <th><span jhiTranslate="hipmediadbApp.werk.urheber">Urheber</span></th>
+            <th><span jhiTranslate="hipmediadbApp.werk.musikepoche">Musikepoche</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let werk of werks ;trackBy: trackId">
+                <td><a [routerLink]="['../werk', werk.id ]">{{werk.id}}</a></td>
+                <td>{{werk.titel}}</td>
+                <td>{{werk.titelzusatz}}</td>
+                <td>{{werk.zaehlinfo}}</td>
+                <td>{{werk.gattung}}</td>
+                <td>
+                    <div *ngIf="werk.urheber">
+                        <a [routerLink]="['../person', werk.urheber?.id ]" >{{werk.urheber?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="werk.musikepoche">
+                        <a [routerLink]="['../musikepoche', werk.musikepoche?.id ]" >{{werk.musikepoche?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../werk', werk.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'werk/'+ werk.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'werk/'+ werk.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Ausfuehrende.
+    -->
+    <changeSet id="20180101214948-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="interpret_id"
+                                 baseTableName="ausfuehrende"
+                                 constraintName="fk_ausfuehrende_interpret_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"/>
+
+        <addForeignKeyConstraint baseColumnNames="dirigent_id"
+                                 baseTableName="ausfuehrende"
+                                 constraintName="fk_ausfuehrende_dirigent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"/>
+
+        <addForeignKeyConstraint baseColumnNames="ensembleart_id"
+                                 baseTableName="ausfuehrende"
+                                 constraintName="fk_ausfuehrende_ensembleart_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ensembleart"/>
+
+    </changeSet>
+</databaseChangeLog>

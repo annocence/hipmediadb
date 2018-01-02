@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "musikepoche",
+            "otherEntityName": "musikepoche",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nachname",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "vorname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pclass",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lebensdaten",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180101214945",
+    "entityTableName": "person",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

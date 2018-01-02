@@ -1,0 +1,28 @@
+{
+    "hipmediadbApp": {
+        "aufnahme" : {
+            "home": {
+                "title": "Aufnahmes",
+                "createLabel": "Create a new Aufnahme",
+                "createOrEditLabel": "Create or edit a Aufnahme"
+            },
+            "created": "A new Aufnahme is created with identifier {{ param }}",
+            "updated": "A Aufnahme is updated with identifier {{ param }}",
+            "deleted": "A Aufnahme is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Aufnahme {{ id }}?"
+            },
+            "detail": {
+                "title": "Aufnahme"
+            },
+            "titel": "Titel",
+            "aufnahmeDatum": "Aufnahme Datum",
+            "mitschnittDatum": "Mitschnitt Datum",
+            "dauer": "Dauer",
+            "startzeit": "Startzeit",
+            "ausfuehrende": "Ausfuehrende",
+            "medium": "Medium",
+            "werk": "Werk"
+        }
+    }
+}

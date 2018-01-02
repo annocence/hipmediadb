@@ -1,0 +1,25 @@
+{
+    "hipmediadbApp": {
+        "person" : {
+            "home": {
+                "title": "People",
+                "createLabel": "Person erstellen",
+                "createOrEditLabel": "Person erstellen oder bearbeiten"
+            },
+            "created": "Person erstellt mit ID {{ param }}",
+            "updated": "Person aktualisiert mit ID {{ param }}",
+            "deleted": "Person gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Person {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Person"
+            },
+            "nachname": "Nachname",
+            "vorname": "Vorname",
+            "pclass": "Pclass",
+            "lebensdaten": "Lebensdaten",
+            "musikepoche": "Musikepoche"
+        }
+    }
+}

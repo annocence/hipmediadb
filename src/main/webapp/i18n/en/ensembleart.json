@@ -1,0 +1,21 @@
+{
+    "hipmediadbApp": {
+        "ensembleart" : {
+            "home": {
+                "title": "Ensemblearts",
+                "createLabel": "Create a new Ensembleart",
+                "createOrEditLabel": "Create or edit a Ensembleart"
+            },
+            "created": "A new Ensembleart is created with identifier {{ param }}",
+            "updated": "A Ensembleart is updated with identifier {{ param }}",
+            "deleted": "A Ensembleart is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ensembleart {{ id }}?"
+            },
+            "detail": {
+                "title": "Ensembleart"
+            },
+            "name": "Name"
+        }
+    }
+}

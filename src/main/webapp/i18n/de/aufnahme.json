@@ -1,0 +1,28 @@
+{
+    "hipmediadbApp": {
+        "aufnahme" : {
+            "home": {
+                "title": "Aufnahmes",
+                "createLabel": "Aufnahme erstellen",
+                "createOrEditLabel": "Aufnahme erstellen oder bearbeiten"
+            },
+            "created": "Aufnahme erstellt mit ID {{ param }}",
+            "updated": "Aufnahme aktualisiert mit ID {{ param }}",
+            "deleted": "Aufnahme gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Aufnahme {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Aufnahme"
+            },
+            "titel": "Titel",
+            "aufnahmeDatum": "Aufnahme Datum",
+            "mitschnittDatum": "Mitschnitt Datum",
+            "dauer": "Dauer",
+            "startzeit": "Startzeit",
+            "ausfuehrende": "Ausfuehrende",
+            "medium": "Medium",
+            "werk": "Werk"
+        }
+    }
+}

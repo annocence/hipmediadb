@@ -1,0 +1,60 @@
+
+<div *ngIf="aufnahme">
+    <h2><span jhiTranslate="hipmediadbApp.aufnahme.detail.title">Aufnahme</span> {{aufnahme.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hipmediadbApp.aufnahme.titel">Titel</span></dt>
+        <dd>
+            <span>{{aufnahme.titel}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.aufnahme.aufnahmeDatum">Aufnahme Datum</span></dt>
+        <dd>
+            <span>{{aufnahme.aufnahmeDatum | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.aufnahme.mitschnittDatum">Mitschnitt Datum</span></dt>
+        <dd>
+            <span>{{aufnahme.mitschnittDatum | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.aufnahme.dauer">Dauer</span></dt>
+        <dd>
+            <span>{{aufnahme.dauer}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.aufnahme.startzeit">Startzeit</span></dt>
+        <dd>
+            <span>{{aufnahme.startzeit}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.aufnahme.ausfuehrende">Ausfuehrende</span></dt>
+        <dd>
+            <div *ngIf="aufnahme.ausfuehrende">
+                <a [routerLink]="['/ausfuehrende', aufnahme.ausfuehrende?.id]">{{aufnahme.ausfuehrende?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.aufnahme.medium">Medium</span></dt>
+        <dd>
+            <div *ngIf="aufnahme.medium">
+                <a [routerLink]="['/medium', aufnahme.medium?.id]">{{aufnahme.medium?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.aufnahme.werk">Werk</span></dt>
+        <dd>
+            <div *ngIf="aufnahme.werk">
+                <a [routerLink]="['/werk', aufnahme.werk?.id]">{{aufnahme.werk?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'aufnahme/'+ aufnahme.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,48 @@
+
+<div *ngIf="person">
+    <h2><span jhiTranslate="hipmediadbApp.person.detail.title">Person</span> {{person.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hipmediadbApp.person.nachname">Nachname</span></dt>
+        <dd>
+            <span>{{person.nachname}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.person.vorname">Vorname</span></dt>
+        <dd>
+            <span>{{person.vorname}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{person.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.person.pclass">Pclass</span></dt>
+        <dd>
+            <span>{{person.pclass}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.person.lebensdaten">Lebensdaten</span></dt>
+        <dd>
+            <span>{{person.lebensdaten}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.person.musikepoche">Musikepoche</span></dt>
+        <dd>
+            <div *ngIf="person.musikepoche">
+                <a [routerLink]="['/musikepoche', person.musikepoche?.id]">{{person.musikepoche?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'person/'+ person.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

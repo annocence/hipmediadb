@@ -1,0 +1,21 @@
+{
+    "hipmediadbApp": {
+        "musikepoche" : {
+            "home": {
+                "title": "Musikepoches",
+                "createLabel": "Create a new Musikepoche",
+                "createOrEditLabel": "Create or edit a Musikepoche"
+            },
+            "created": "A new Musikepoche is created with identifier {{ param }}",
+            "updated": "A Musikepoche is updated with identifier {{ param }}",
+            "deleted": "A Musikepoche is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Musikepoche {{ id }}?"
+            },
+            "detail": {
+                "title": "Musikepoche"
+            },
+            "name": "Name"
+        }
+    }
+}

@@ -1,0 +1,51 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAusfuehrendeLabel" jhiTranslate="hipmediadbApp.ausfuehrende.home.createOrEditLabel">Create or edit a Ausfuehrende</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!ausfuehrende.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="ausfuehrende.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.ausfuehrende.orchester" for="field_orchester">Orchester</label>
+            <input type="text" class="form-control" name="orchester" id="field_orchester"
+                [(ngModel)]="ausfuehrende.orchester" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.ausfuehrende.interpret" for="field_interpret">Interpret</label>
+            <select class="form-control" id="field_interpret" name="interpret" [(ngModel)]="ausfuehrende.interpret" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personOption.id === ausfuehrende.interpret?.id ? ausfuehrende.interpret : personOption" *ngFor="let personOption of people; trackBy: trackPersonById">{{personOption.getName()}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.ausfuehrende.dirigent" for="field_dirigent">Dirigent</label>
+            <select class="form-control" id="field_dirigent" name="dirigent" [(ngModel)]="ausfuehrende.dirigent" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personOption.id === ausfuehrende.dirigent?.id ? ausfuehrende.dirigent : personOption" *ngFor="let personOption of people; trackBy: trackPersonById">{{personOption.getName()}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.ausfuehrende.ensembleart" for="field_ensembleart">Ensembleart</label>
+            <select class="form-control" id="field_ensembleart" name="ensembleart" [(ngModel)]="ausfuehrende.ensembleart" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ensembleartOption.id === ausfuehrende.ensembleart?.id ? ausfuehrende.ensembleart : ensembleartOption" *ngFor="let ensembleartOption of ensemblearts; trackBy: trackEnsembleartById">{{ensembleartOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

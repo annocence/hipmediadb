@@ -1,0 +1,43 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMediumLabel" jhiTranslate="hipmediadbApp.medium.home.createOrEditLabel">Create or edit a Medium</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!medium.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="medium.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.medium.signatur" for="field_signatur">Signatur</label>
+            <input type="text" class="form-control" name="signatur" id="field_signatur"
+                [(ngModel)]="medium.signatur" required/>
+            <div [hidden]="!(editForm.controls.signatur?.dirty && editForm.controls.signatur?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.signatur?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.medium.typ" for="field_typ">Typ</label>
+            <select class="form-control" id="field_typ" name="typ" [(ngModel)]="medium.typ" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="mediumtypOption.id === medium.typ?.id ? medium.typ : mediumtypOption" *ngFor="let mediumtypOption of mediumtyps; trackBy: trackMediumtypById">{{mediumtypOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

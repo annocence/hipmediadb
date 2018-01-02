@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Aufnahme.
+    -->
+    <changeSet id="20180101214949-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ausfuehrende_id"
+                                 baseTableName="aufnahme"
+                                 constraintName="fk_aufnahme_ausfuehrende_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ausfuehrende"/>
+
+        <addForeignKeyConstraint baseColumnNames="medium_id"
+                                 baseTableName="aufnahme"
+                                 constraintName="fk_aufnahme_medium_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medium"/>
+
+        <addForeignKeyConstraint baseColumnNames="werk_id"
+                                 baseTableName="aufnahme"
+                                 constraintName="fk_aufnahme_werk_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="werk"/>
+
+    </changeSet>
+</databaseChangeLog>

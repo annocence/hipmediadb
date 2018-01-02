@@ -1,0 +1,26 @@
+{
+    "hipmediadbApp": {
+        "werk" : {
+            "home": {
+                "title": "Werks",
+                "createLabel": "Werk erstellen",
+                "createOrEditLabel": "Werk erstellen oder bearbeiten"
+            },
+            "created": "Werk erstellt mit ID {{ param }}",
+            "updated": "Werk aktualisiert mit ID {{ param }}",
+            "deleted": "Werk gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Werk {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Werk"
+            },
+            "titel": "Titel",
+            "titelzusatz": "Titelzusatz",
+            "zaehlinfo": "Zaehlinfo",
+            "gattung": "Gattung",
+            "urheber": "Urheber",
+            "musikepoche": "Musikepoche"
+        }
+    }
+}

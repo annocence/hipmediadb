@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="hipmediadbApp.ausfuehrende.home.title">Ausfuehrendes</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ausfuehrende" [routerLink]="['/', { outlets: { popup: ['ausfuehrende-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="hipmediadbApp.ausfuehrende.home.createLabel">
+            Create new Ausfuehrende
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ausfuehrendes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="hipmediadbApp.ausfuehrende.orchester">Orchester</span></th>
+            <th><span jhiTranslate="hipmediadbApp.ausfuehrende.interpret">Interpret</span></th>
+            <th><span jhiTranslate="hipmediadbApp.ausfuehrende.dirigent">Dirigent</span></th>
+            <th><span jhiTranslate="hipmediadbApp.ausfuehrende.ensembleart">Ensembleart</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ausfuehrende of ausfuehrendes ;trackBy: trackId">
+                <td><a [routerLink]="['../ausfuehrende', ausfuehrende.id ]">{{ausfuehrende.id}}</a></td>
+                <td>{{ausfuehrende.orchester}}</td>
+                <td>
+                    <div *ngIf="ausfuehrende.interpret">
+                        <a [routerLink]="['../person', ausfuehrende.interpret?.id ]" >{{ausfuehrende.interpret.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="ausfuehrende.dirigent">
+                        <a [routerLink]="['../person', ausfuehrende.dirigent?.id ]" >{{ausfuehrende.dirigent?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="ausfuehrende.ensembleart">
+                        <a [routerLink]="['../ensembleart', ausfuehrende.ensembleart?.id ]" >{{ausfuehrende.ensembleart?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ausfuehrende', ausfuehrende.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ausfuehrende/'+ ausfuehrende.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ausfuehrende/'+ ausfuehrende.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

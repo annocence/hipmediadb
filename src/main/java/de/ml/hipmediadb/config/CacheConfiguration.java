@@ -42,6 +42,14 @@ public class CacheConfiguration {
             cm.createCache(de.ml.hipmediadb.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(de.ml.hipmediadb.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(de.ml.hipmediadb.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(de.ml.hipmediadb.domain.Mediumtyp.class.getName(), jcacheConfiguration);
+            cm.createCache(de.ml.hipmediadb.domain.Medium.class.getName(), jcacheConfiguration);
+            cm.createCache(de.ml.hipmediadb.domain.Person.class.getName(), jcacheConfiguration);
+            cm.createCache(de.ml.hipmediadb.domain.Musikepoche.class.getName(), jcacheConfiguration);
+            cm.createCache(de.ml.hipmediadb.domain.Ensembleart.class.getName(), jcacheConfiguration);
+            cm.createCache(de.ml.hipmediadb.domain.Ausfuehrende.class.getName(), jcacheConfiguration);
+            cm.createCache(de.ml.hipmediadb.domain.Aufnahme.class.getName(), jcacheConfiguration);
+            cm.createCache(de.ml.hipmediadb.domain.Werk.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

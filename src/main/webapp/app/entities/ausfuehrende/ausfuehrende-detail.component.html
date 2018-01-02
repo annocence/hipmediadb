@@ -1,0 +1,44 @@
+
+<div *ngIf="ausfuehrende">
+    <h2><span jhiTranslate="hipmediadbApp.ausfuehrende.detail.title">Ausfuehrende</span> {{ausfuehrende.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hipmediadbApp.ausfuehrende.orchester">Orchester</span></dt>
+        <dd>
+            <span>{{ausfuehrende.orchester}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.ausfuehrende.interpret">Interpret</span></dt>
+        <dd>
+            <div *ngIf="ausfuehrende.interpret">
+                <a [routerLink]="['/person', ausfuehrende.interpret?.id]">{{ausfuehrende.interpret?.name}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.ausfuehrende.dirigent">Dirigent</span></dt>
+        <dd>
+            <div *ngIf="ausfuehrende.dirigent">
+                <a [routerLink]="['/person', ausfuehrende.dirigent?.id]">{{ausfuehrende.dirigent?.name}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.ausfuehrende.ensembleart">Ensembleart</span></dt>
+        <dd>
+            <div *ngIf="ausfuehrende.ensembleart">
+                <a [routerLink]="['/ensembleart', ausfuehrende.ensembleart?.id]">{{ausfuehrende.ensembleart?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ausfuehrende/'+ ausfuehrende.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

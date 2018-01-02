@@ -1,0 +1,24 @@
+{
+    "hipmediadbApp": {
+        "ausfuehrende" : {
+            "home": {
+                "title": "Ausfuehrendes",
+                "createLabel": "Ausfuehrende erstellen",
+                "createOrEditLabel": "Ausfuehrende erstellen oder bearbeiten"
+            },
+            "created": "Ausfuehrende erstellt mit ID {{ param }}",
+            "updated": "Ausfuehrende aktualisiert mit ID {{ param }}",
+            "deleted": "Ausfuehrende gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Ausfuehrende {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Ausfuehrende"
+            },
+            "orchester": "Orchester",
+            "interpret": "Interpret",
+            "dirigent": "Dirigent",
+            "ensembleart": "Ensembleart"
+        }
+    }
+}

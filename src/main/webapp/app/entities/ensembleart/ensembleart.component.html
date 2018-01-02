@@ -1,0 +1,58 @@
+<div>
+    <h2>
+        <span jhiTranslate="hipmediadbApp.ensembleart.home.title">Ensemblearts</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ensembleart" [routerLink]="['/', { outlets: { popup: ['ensembleart-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="hipmediadbApp.ensembleart.home.createLabel">
+            Create new Ensembleart
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ensemblearts">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="hipmediadbApp.ensembleart.name">Name</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ensembleart of ensemblearts ;trackBy: trackId">
+                <td><a [routerLink]="['../ensembleart', ensembleart.id ]">{{ensembleart.id}}</a></td>
+                <td>{{ensembleart.name}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ensembleart', ensembleart.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ensembleart/'+ ensembleart.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ensembleart/'+ ensembleart.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

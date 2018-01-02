@@ -1,0 +1,59 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myWerkLabel" jhiTranslate="hipmediadbApp.werk.home.createOrEditLabel">Create or edit a Werk</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!werk.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="werk.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.werk.titel" for="field_titel">Titel</label>
+            <input type="text" class="form-control" name="titel" id="field_titel"
+                [(ngModel)]="werk.titel" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.werk.titelzusatz" for="field_titelzusatz">Titelzusatz</label>
+            <input type="text" class="form-control" name="titelzusatz" id="field_titelzusatz"
+                [(ngModel)]="werk.titelzusatz" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.werk.zaehlinfo" for="field_zaehlinfo">Zaehlinfo</label>
+            <input type="text" class="form-control" name="zaehlinfo" id="field_zaehlinfo"
+                [(ngModel)]="werk.zaehlinfo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.werk.gattung" for="field_gattung">Gattung</label>
+            <input type="text" class="form-control" name="gattung" id="field_gattung"
+                [(ngModel)]="werk.gattung" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.werk.urheber" for="field_urheber">Urheber</label>
+            <select class="form-control" id="field_urheber" name="urheber" [(ngModel)]="werk.urheber" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personOption.id === werk.urheber?.id ? werk.urheber : personOption" *ngFor="let personOption of people; trackBy: trackPersonById">{{personOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.werk.musikepoche" for="field_musikepoche">Musikepoche</label>
+            <select class="form-control" id="field_musikepoche" name="musikepoche" [(ngModel)]="werk.musikepoche" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="musikepocheOption.id === werk.musikepoche?.id ? werk.musikepoche : musikepocheOption" *ngFor="let musikepocheOption of musikepoches; trackBy: trackMusikepocheById">{{musikepocheOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

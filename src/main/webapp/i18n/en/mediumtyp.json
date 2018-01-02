@@ -1,0 +1,21 @@
+{
+    "hipmediadbApp": {
+        "mediumtyp" : {
+            "home": {
+                "title": "Mediumtyps",
+                "createLabel": "Create a new Mediumtyp",
+                "createOrEditLabel": "Create or edit a Mediumtyp"
+            },
+            "created": "A new Mediumtyp is created with identifier {{ param }}",
+            "updated": "A Mediumtyp is updated with identifier {{ param }}",
+            "deleted": "A Mediumtyp is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mediumtyp {{ id }}?"
+            },
+            "detail": {
+                "title": "Mediumtyp"
+            },
+            "name": "Name"
+        }
+    }
+}

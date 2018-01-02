@@ -1,0 +1,81 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAufnahmeLabel" jhiTranslate="hipmediadbApp.aufnahme.home.createOrEditLabel">Create or edit a Aufnahme</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!aufnahme.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="aufnahme.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.aufnahme.titel" for="field_titel">Titel</label>
+            <input type="text" class="form-control" name="titel" id="field_titel"
+                [(ngModel)]="aufnahme.titel" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.aufnahme.aufnahmeDatum" for="field_aufnahmeDatum">Aufnahme Datum</label>
+            <div class="input-group">
+                <input id="field_aufnahmeDatum" type="text" class="form-control" name="aufnahmeDatum" ngbDatepicker  #aufnahmeDatumDp="ngbDatepicker" [(ngModel)]="aufnahme.aufnahmeDatum"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="aufnahmeDatumDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.aufnahme.mitschnittDatum" for="field_mitschnittDatum">Mitschnitt Datum</label>
+            <div class="input-group">
+                <input id="field_mitschnittDatum" type="text" class="form-control" name="mitschnittDatum" ngbDatepicker  #mitschnittDatumDp="ngbDatepicker" [(ngModel)]="aufnahme.mitschnittDatum"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="mitschnittDatumDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.aufnahme.dauer" for="field_dauer">Dauer</label>
+            <input type="number" class="form-control" name="dauer" id="field_dauer"
+                [(ngModel)]="aufnahme.dauer" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.aufnahme.startzeit" for="field_startzeit">Startzeit</label>
+            <input type="number" class="form-control" name="startzeit" id="field_startzeit"
+                [(ngModel)]="aufnahme.startzeit" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.aufnahme.ausfuehrende" for="field_ausfuehrende">Ausfuehrende</label>
+            <select class="form-control" id="field_ausfuehrende" name="ausfuehrende" [(ngModel)]="aufnahme.ausfuehrende" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ausfuehrendeOption.id === aufnahme.ausfuehrende?.id ? aufnahme.ausfuehrende : ausfuehrendeOption" *ngFor="let ausfuehrendeOption of ausfuehrendes; trackBy: trackAusfuehrendeById">{{ausfuehrendeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.aufnahme.medium" for="field_medium">Medium</label>
+            <select class="form-control" id="field_medium" name="medium" [(ngModel)]="aufnahme.medium" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="mediumOption.id === aufnahme.medium?.id ? aufnahme.medium : mediumOption" *ngFor="let mediumOption of mediums; trackBy: trackMediumById">{{mediumOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hipmediadbApp.aufnahme.werk" for="field_werk">Werk</label>
+            <select class="form-control" id="field_werk" name="werk" [(ngModel)]="aufnahme.werk" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="werkOption.id === aufnahme.werk?.id ? aufnahme.werk : werkOption" *ngFor="let werkOption of werks; trackBy: trackWerkById">{{werkOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

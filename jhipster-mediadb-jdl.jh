@@ -1,0 +1,77 @@
+entity Mediumtyp {
+	name String required
+}
+
+entity Medium {
+	signatur String required
+}
+
+relationship ManyToOne {
+	Medium{typ} to Mediumtyp
+}
+entity Person {
+    nachname String required,
+    vorname String,
+    pclass String,
+    lebensdaten String,
+}
+
+entity Musikepoche {
+	name String required
+}
+
+relationship ManyToOne {
+	Person{musikepoche} to Musikepoche
+}
+
+entity Ensembleart {
+	name String required
+}
+
+entity Ausfuehrende {
+	orchester String
+}
+
+relationship ManyToOne {
+	Ausfuehrende{interpret} to Person
+    Ausfuehrende{dirigent} to Person
+    Ausfuehrende{ensembleart} to Ensembleart
+}
+
+entity Aufnahme {
+    titel String
+    // static belongsTo = [medium: Medium]
+    // static hasOne = [werk: Werk]
+    // Ausfuehrende ausfuehrende
+    aufnahmeDatum LocalDate
+    mitschnittDatum LocalDate
+    dauer Long
+    startzeit Long
+}
+
+relationship ManyToOne {
+	Aufnahme{ausfuehrende} to Ausfuehrende
+    Aufnahme{medium} to Medium
+	Aufnahme{werk} to Werk
+}
+
+entity  Werk {
+  	// static hasOne = [urheber: Werkurheber]
+   	// static hasMany = [aufnahme: Aufnahme]
+  	titel String
+    titelzusatz String
+    zaehlinfo String
+    gattung String
+	//  Musikepoche musikepoche
+}
+
+relationship ManyToOne{
+	Werk{urheber} to Person
+    Werk{musikepoche} to Musikepoche
+}
+
+// Set pagination options
+paginate Aufnahme with infinite-scroll
+paginate Medium with pagination
+
+//dto * with mapstruct

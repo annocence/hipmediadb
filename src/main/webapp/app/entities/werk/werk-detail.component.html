@@ -1,0 +1,50 @@
+
+<div *ngIf="werk">
+    <h2><span jhiTranslate="hipmediadbApp.werk.detail.title">Werk</span> {{werk.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hipmediadbApp.werk.titel">Titel</span></dt>
+        <dd>
+            <span>{{werk.titel}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.werk.titelzusatz">Titelzusatz</span></dt>
+        <dd>
+            <span>{{werk.titelzusatz}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.werk.zaehlinfo">Zaehlinfo</span></dt>
+        <dd>
+            <span>{{werk.zaehlinfo}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.werk.gattung">Gattung</span></dt>
+        <dd>
+            <span>{{werk.gattung}}</span>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.werk.urheber">Urheber</span></dt>
+        <dd>
+            <div *ngIf="werk.urheber">
+                <a [routerLink]="['/person', werk.urheber?.id]">{{werk.urheber?.nachname}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="hipmediadbApp.werk.musikepoche">Musikepoche</span></dt>
+        <dd>
+            <div *ngIf="werk.musikepoche">
+                <a [routerLink]="['/musikepoche', werk.musikepoche?.id]">{{werk.musikepoche?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'werk/'+ werk.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

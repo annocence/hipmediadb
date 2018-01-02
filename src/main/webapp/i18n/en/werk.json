@@ -1,0 +1,26 @@
+{
+    "hipmediadbApp": {
+        "werk" : {
+            "home": {
+                "title": "Werks",
+                "createLabel": "Create a new Werk",
+                "createOrEditLabel": "Create or edit a Werk"
+            },
+            "created": "A new Werk is created with identifier {{ param }}",
+            "updated": "A Werk is updated with identifier {{ param }}",
+            "deleted": "A Werk is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Werk {{ id }}?"
+            },
+            "detail": {
+                "title": "Werk"
+            },
+            "titel": "Titel",
+            "titelzusatz": "Titelzusatz",
+            "zaehlinfo": "Zaehlinfo",
+            "gattung": "Gattung",
+            "urheber": "Urheber",
+            "musikepoche": "Musikepoche"
+        }
+    }
+}
