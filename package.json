@@ -72,7 +72,7 @@
     "tslint": "5.5.0",
     "tslint-loader": "3.5.3",
     "typescript": "2.5.3",
-    "xml2js": "0.4.17",
+    "xml2js": "0.5.0",
     "uglifyjs-webpack-plugin": "1.1.4",
     "uglify-es": "3.2.2",
     "webpack": "3.10.0",
